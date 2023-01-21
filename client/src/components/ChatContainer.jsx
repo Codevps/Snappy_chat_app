@@ -60,7 +60,6 @@ export default function ChatContainer({ currentChat, socket }) {
       });
     }
   }, []);
-
   useEffect(() => {
     arrivalMessage && setMessages((prev) => [...prev, arrivalMessage]);
   }, [arrivalMessage]);
@@ -68,7 +67,6 @@ export default function ChatContainer({ currentChat, socket }) {
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
   return (
     <Container>
       <div className="chat-header">
@@ -95,7 +93,16 @@ export default function ChatContainer({ currentChat, socket }) {
                 }`}
               >
                 <div className="content ">
-                  <p>{message.message}</p>
+                  <div>
+                    {message?.message[1] && (
+                      <img
+                        style={{ height: "20rem", width: "auto" }}
+                        src={message.message[1]}
+                        alt=""
+                      />
+                    )}
+                    {message?.message[0] && <p>{message.message[0]}</p>}{" "}
+                  </div>
                 </div>
               </div>
             </div>
