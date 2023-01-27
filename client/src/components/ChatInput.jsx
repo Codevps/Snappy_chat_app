@@ -1,21 +1,21 @@
+import Picker from "emoji-picker-react";
 import React, { useState } from "react";
+import FileBase from "react-file-base64";
 import { BsEmojiSmileFill } from "react-icons/bs";
 import { HiOutlineFolderAdd } from "react-icons/hi";
 import { IoMdSend } from "react-icons/io";
 import styled from "styled-components";
-import Picker from "emoji-picker-react";
-import FileBase from "react-file-base64";
 
 export default function ChatInput({ handleSendMsg }) {
   const [msg, setMsg] = useState({
     text: "",
     selectedFile: "",
   });
+  console.log(msg.selectedFile);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const handleEmojiPickerhideShow = () => {
     setShowEmojiPicker(!showEmojiPicker);
   };
-
   const handleEmojiClick = (event, emojiObject) => {
     let message = msg.text;
     message += emojiObject.emoji;
@@ -55,7 +55,7 @@ export default function ChatInput({ handleSendMsg }) {
         <div
           style={{
             position: "relative",
-            left: "-17rem",
+            left: "-17.5rem",
             marginTop: "0.1rem",
           }}
         >
@@ -87,11 +87,12 @@ export default function ChatInput({ handleSendMsg }) {
             }}
           >
             <div>
-              <img
+              {/* <img
                 style={{ height: "20rem", width: "auto" }}
                 src={msg.selectedFile}
                 alt=""
-              />
+              /> */}
+              <audio src={msg?.selectedFile}></audio>
             </div>
             <div
               style={{

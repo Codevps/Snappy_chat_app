@@ -3,9 +3,10 @@ const mongoose = require("mongoose");
 const MessageSchema = mongoose.Schema(
   {
     message: {
-      text: { type: String },
+      text: String,
       selectedFile: String,
-      // video: {},
+      video: String,
+      audio: String,
     },
     users: Array,
     sender: {
