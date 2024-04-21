@@ -11,6 +11,7 @@ require("dotenv").config();
 app.use(
   cors({
     origin: "https://snappy-chat-app-tau.vercel.app",
+    methods: ["POST", "GET"],
     credentials: true, // If you're using cookies or sessions
   })
 );
