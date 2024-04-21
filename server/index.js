@@ -6,6 +6,7 @@ const messageRoutes = require("./routes/messages");
 const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
+require("https");
 
 // Allow requests from the specified origin
 app.use(
