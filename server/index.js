@@ -7,7 +7,13 @@ const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
 
-app.use(cors());
+// Allow requests from the specified origin
+app.use(
+  cors({
+    origin: "https://snappy-chat-app-tau.vercel.app",
+    credentials: true, // If you're using cookies or sessions
+  })
+);
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 mongoose
